@@ -1,10 +1,12 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<time.h>
 #define grid_size 9
 
 void generate_0_by_system(int grid[])
 {
     int pos= rand() % grid_size;
+    srand(time(NULL));
     if (grid[pos]!=99)
     {
         pos=rand() % grid_size;
@@ -62,7 +64,7 @@ void main()
     }
     for (int i=0;i<grid_size;i++)
         grid[i]=99; //placeholder value for non-marked squares
-        for (turn = 0; turn < 5; turn++)// since player can make a max of 5 moves
+        for (turn = 0; turn < 6; turn++)// since player can make a max of 5 moves
         {
             // loops until a valid move is made
             do
@@ -75,7 +77,7 @@ void main()
 
             printf("Your move:\n");
             print_array(grid);
-            if (turn < 4) // only 4 computer moves are possible
+            if (turn < 5) // only 4 computer moves are possible
             {
                 printf("Computer's move:\n");
                 generate_0_by_system(grid);
